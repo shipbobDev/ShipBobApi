@@ -253,8 +253,8 @@
                         </td>
                     </tr>
                 </table>
-
-                <h3>Tracking Export</h3>
+ 
+                  <h3>Tracking Export</h3>
                 <p class="well">
                     <span class="note">
                         For all orders sent to us via API, we do a post back of the tracking details as soon as they are available, provided you <b>share a web hook url with us.</b>
@@ -299,12 +299,95 @@
                         </td>
                     </tr>
                 </table>
-                <h4>Notes</h4>
+                 <h4>Notes</h4>
                 <p class="well">
                     <span class="note">
                         Our system with check for HttpStatusCode for the post request. If it returns OK(Status code=200), we will update our records and consider it as successful postback. If anything else comes as response, our platform will retry for few days and then give up.
                     </span>
                 </p>
+                 <h3>Inventory</h3>
+                <p class="well">
+                    <span class="note">
+                        You may request a list of products using this endpoint.  It will return a list with paging information.                       
+                    </span>
+                </p>
+                <h4>Request</h4>
+                <pre class="prettyprint">
+                    GET /api/Inventory/GetProducts?userToken=<token>&showActiveProducts=true&showDigitalProducts=false&pageNo=1
+                </pre>
+                <table class="table table-striped table-bordered table-condensed">
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td class="optionName" title="Description" data-content="Go to the Account Setting > API on ShipBob to create one or the get the current"><a href="javascript:;">UserToken</a></td>
+                        <td>string</td>
+                        <td>Your Token</td>
+                    </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;">ShowActiveProducts</a></td>
+                        <td>bool</td>
+                        <td>True will return active products.  False will return inactive products</td>
+                    </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;">ShowDigitalProducts</a></td>
+                        <td>string</td>
+                        <td>
+                            True will return digital products.  Digital products are products that are sent and shipped with an order, however since they are digital these products will not be physically fulfilled.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;">pageNo</a></td>
+                        <td>string</td>
+                        <td>
+                            The page number to request.
+                        </td>
+                    </tr>
+                </table>
+                 <h4>Response</h4>
+                <pre class="prettyprint">
+    {
+"Success": true
+"Error": null
+"TotalPages": 1
+"TotalRecords": 6
+"CurrentPage": 1
+"PayLoad":
+  {
+"Id": 112131
+"ItemName": "Product B"
+"QuantityOnHand": 10
+}
+  {
+"Id": 112132
+"ItemName": "Product C"
+"QuantityOnHand": 4
+}
+  {
+"Id": 113589
+"ItemName": "Product D"
+"QuantityOnHand": 10
+}
+  {
+"Id": 228454
+"ItemName": "Mustafa"
+"QuantityOnHand": 10
+}
+  {
+"Id": 228483
+"ItemName": "Product July"
+"QuantityOnHand": 11
+}
+  {
+"Id": 242239
+"ItemName": "PRODUCT TEST-12"
+"QuantityOnHand": 1
+}
+
+}
+                </pre>
             </div><!--/span-->
         </div><!--/row-->
     </div><!--/.fluid-container-->
