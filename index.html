@@ -228,7 +228,8 @@
                 <pre class="prettyprint">
     {
         "Success": true,
-        "Error": "Please provide name"
+        "Error": "Please provide name",
+        "PayLoad": 123456789
     }
                 </pre>
                 <table class="table table-striped table-bordered table-condensed">
@@ -250,6 +251,13 @@
                         <td>string</td>
                         <td>
                             If "Success" property is set to false, Error message will be shown.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;">PayLoad</a></td>
+                        <td>int</td>
+                        <td>
+                            If "Success" property is set to true, PayLoad will be the OrderId on ShipBob.
                         </td>
                     </tr>
                 </table>
