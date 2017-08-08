@@ -1,4 +1,4 @@
-﻿
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -327,6 +327,8 @@
                         Our system with check for HttpStatusCode for the post request. If it returns OK(Status code=200), we will update our records and consider it as successful postback. If anything else comes as response, our platform will retry for few days and then give up.
                     </span>
                 </p>
+				
+				
                  <h3>Inventory</h3>
                 <p class="well">
                     <span class="note">
@@ -416,6 +418,97 @@
           }
 }
                 </pre>
+				
+				
+				 <h3>Warehouse Receiving Order</h3>
+                <p class="well">
+                    <span class="note">
+                        You can create a Warehouse receiving order               
+                    </span>
+                </p>
+                <h4>Request</h4>
+                <pre class="prettyprint"><br/>    POST api/Receiving/Create
+                </pre>
+                <table class="table table-striped table-bordered table-condensed">
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td class="optionName" title="Description" data-content="Go to the Account Setting > API on ShipBob to create one or the get the current"><a href="javascript:;">UserToken</a></td>
+                        <td>string</td>
+                        <td>Your Token</td>
+                    </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;">FulfillmentCenterId</a></td>
+                        <td>int</td>
+                        <td>Fulfillment center where you will sent the packages. CH = 1, NY = 2, LA = 3, SF = 4</td>
+                    </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;">InventoryItems</a></td>
+                        <td>List</td>
+                        <td>
+                            Provide list of inventory items you want to send. It should specify "Sku", "Quantity"
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;">PackageType</a></td>
+                        <td>int</td>
+                        <td>
+                            Type of the Package. Package = 1, Pallet = 2
+                        </td>
+                    </tr>
+                     <tr>
+                        <td class="optionName"><a href="javascript:;">PackagesCount</a></td>
+                        <td>int</td>
+                        <td>
+                            Number of packages you are sending.
+                        </td>
+                    </tr>
+					 <tr>
+                        <td class="optionName"><a href="javascript:;">ArrivalDate</a></td>
+                        <td>string</td>
+                        <td>
+                           Arrival date of the package. Format = "mm/dd/yyyy"
+                        </td>
+                    </tr>
+                </table>
+				
+				 <h4>Example of the Request</h4>
+                <pre class="prettyprint">
+				
+	{
+	  "UserToken": "Shipbob_Provided_Token",
+	  "FulfillmentCenterId": 2,
+	  "InventoryItems": [
+		{
+		  "Sku": "SKU1",
+		  "Quantity": 1,
+		  "Tracking": "Some_TrackingInfo"
+		},
+		{
+		  "Sku": "SKU2",
+		  "Quantity": 3,
+		  "Tracking": "Some_TrackingInfo"
+		}
+	  ],
+	  "PackageType": 1,
+	  "PackagesCount": 3,
+	  "ArrivalDate": "08/01/2017"
+	}
+                </pre>
+				
+                 <h4>Response</h4>
+                <pre class="prettyprint">
+				
+	{
+	  "Error":null,
+	  "Success":true,
+	  "PayLoad":<WRO_OrderID>
+	}
+                </pre>
+				
             </div><!--/span-->
         </div><!--/row-->
     </div><!--/.fluid-container-->
