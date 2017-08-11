@@ -416,7 +416,168 @@
       }
 }
                 </pre>
-				
+		    <h3>Import Orders</h3>
+                <p class="well">
+                    <span class="note">
+                        You can import inventory from your platform<br />
+                        API URL: <a href="http://shipbobapiv2.shipbob.com/api/Inventory/PostNewInventory">http://shipbobapiv2.shipbob.com/api/Inventory/PostNewInventory</a>
+                    </span>
+                </p>
+                <h4>Example of the Request</h4>
+                <pre class="prettyprint">
+  {
+  "UserToken": "Shipbob_Provided_Token",
+  "Items": [
+    {
+      "ItemName": "TestItem1",
+      "SKU": "123456"
+    },
+    {
+      "ItemName": "TestItem2",
+      "SKU": "098765"
+    }
+  ]
+}
+                </pre>
+                <h4>Options</h4>
+                <h5>Main Object</h5>
+                <table class="table table-striped table-bordered table-condensed">
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Required/Optional</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td class="optionName" title="Description" data-content="Go to the Account Setting > API on ShipBob to create one or the get the current"><a href="javascript:;">UserToken</a></td>
+                        <td>string</td>
+                        <td>Required</td>
+                        <td>
+                            Please pass the UserToken with "Shipbob_Provided_Token" as shown above, else you will get authentication error. <br />
+                            Set the header as "Content-Type: application/json; charset=utf-8". without quotes
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;"></a></td>
+                        <td>Array</td>
+                        <td>Required</td>
+                        <td>
+                            List of InventoryItems. See <a href="#InventoryItems">InventoryItems</a> object for more information below. 
+		            We currently only allow you to import 100 items at a time. Please batch the requests in chunks of 100 items.
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <h5 id="InventoryDetail">InventoryItems Object</h5>
+                <table class="table table-striped table-bordered table-condensed">
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Required/Optional</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;">Name</a></td>
+                        <td>string</td>
+                        <td>Required</td>
+                        <td>
+                            Name of the product
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;">SKU</a></td>
+                        <td>string</td>
+                        <td>Optional</td>
+                        <td>
+                            SKU in your store
+                        </td>
+                    </tr>
+
+                </table>
+                <h4>Response</h4>
+                <pre class="prettyprint">
+    {
+        "Success": true,
+        "Error": "Inventory items exceeded the allotted amount of 100. Please resend the request in batches of 100",
+        "PayLoad": InventoryImportResult
+    }
+                </pre>
+                <table class="table table-striped table-bordered table-condensed">
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;">Success</a></td>
+                        <td>bool</td>
+                        <td>
+                            true: Imported successfully <br />
+                            false: Please Check "Error" property
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;">Error</a></td>
+                        <td>string</td>
+                        <td>
+                            If "Success" property is set to false, Error message will be shown.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;">PayLoad</a></td>
+                        <td>int</td>
+                        <td>
+                            If "Success" property is set to true, PayLoad will be a list of items that successfully imported and list of items that failed to import. NOTE: Failed items most likely means the SKU or ItemName already exists in the database. See  <a href="#InventoryImportResult">InventoryImportResult</a> object for more information below.
+                        </td>
+                    </tr>
+                </table>
+                <h5 id="InventoryImportResult">InventoryImportResult Object</h5>
+                <table class="table table-striped table-bordered table-condensed">
+                    <tr>
+                        <th>Name</th>
+                        <th>Array</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;">ItemName</a></td>
+                        <td>Array</td>
+                        <td>
+                            Name of the product
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;">SKU</a></td>
+                        <td>Array</td>
+                        <td>
+                            SKU Imported
+                        </td>
+                    </tr>
+                </table>
+                <h4>Response</h4>
+                <pre class="prettyprint">
+                { 
+  "SuccessInventory": [
+    {
+      "ItemName": "TestItem1",
+      "SKU": "123456"
+    },
+    {
+      "ItemName": "TestItem2",
+      "SKU": "09876"
+    }
+  ],
+  "FailedInventory": [
+    {
+      "ItemName": "TestItem3",
+      "SKU": "123456"
+    },
+    {
+      "ItemName": "TestItem4",
+      "SKU": "09876"
+    }
+  ]
+}
+</pre>				
 				
 				
 				 <h3>Warehouse Receiving Order</h3>
