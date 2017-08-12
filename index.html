@@ -416,16 +416,16 @@
       }
 }
                 </pre>
-		    <h3>Import Orders</h3>
+<h3>Import Inventory</h3>
                 <p class="well">
                     <span class="note">
                         You can import inventory from your platform<br />
-                        API URL: <a href="http://shipbobapiv2.shipbob.com/api/Inventory/PostNewInventory">http://shipbobapiv2.shipbob.com/api/Inventory/PostNewInventory</a>
+                        API URL: <a href="http://shipbobapiv2.shipbob.com/api/Orders/PlaceNewWebOrder">http://shipbobapiv2.shipbob.com/api/Orders/PlaceNewWebOrder</a>
                     </span>
                 </p>
                 <h4>Example of the Request</h4>
                 <pre class="prettyprint">
-  {
+{
   "UserToken": "Shipbob_Provided_Token",
   "Items": [
     {
@@ -458,17 +458,16 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="optionName"><a href="javascript:;"></a></td>
+                        <td class="optionName"><a href="javascript:;">Items</a></td>
                         <td>Array</td>
                         <td>Required</td>
                         <td>
-                            List of InventoryItems. See <a href="#InventoryItems">InventoryItems</a> object for more information below. 
-		            We currently only allow you to import 100 items at a time. Please batch the requests in chunks of 100 items.
+                            List of InventoryItems. See <a href="#InventoryItems">InventoryItems</a> object for more information below.
                         </td>
                     </tr>
                 </table>
                 <br />
-                <h5 id="InventoryDetail">InventoryItems Object</h5>
+                <h5 id="InventoryItems">InventoryItems Object</h5>
                 <table class="table table-striped table-bordered table-condensed">
                     <tr>
                         <th>Name</th>
@@ -477,7 +476,7 @@
                         <th>Description</th>
                     </tr>
                     <tr>
-                        <td class="optionName"><a href="javascript:;">Name</a></td>
+                        <td class="optionName"><a href="javascript:;">ItemName</a></td>
                         <td>string</td>
                         <td>Required</td>
                         <td>
@@ -531,7 +530,7 @@
                         </td>
                     </tr>
                 </table>
-                <h5 id="InventoryImportResult">InventoryImportResult Object</h5>
+                <h5 id="InventoryDetail">InventoryImportResult Object</h5>
                 <table class="table table-striped table-bordered table-condensed">
                     <tr>
                         <th>Name</th>
@@ -555,7 +554,7 @@
                 </table>
                 <h4>Response</h4>
                 <pre class="prettyprint">
-                { 
+{ 
   "SuccessInventory": [
     {
       "ItemName": "TestItem1",
@@ -577,7 +576,7 @@
     }
   ]
 }
-</pre>				
+</pre>	
 				
 				
 				 <h3>Warehouse Receiving Order</h3>
