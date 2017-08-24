@@ -297,7 +297,8 @@
         "Carrier":"USPS",
         "TrackingId":"345454533455444",
 	"Invoice":10.25,
-	"FormatInvoice":"$10.25"
+	"FormatInvoice":"$10.25",
+	"FulfilledFrom": "Chicago Warehouse #1"
     }
                 </pre>
                 <table class="table table-striped table-bordered table-condensed">
@@ -347,6 +348,13 @@
                         <td>string</td>
                         <td>
                             Formatted invoice amount with "$" sign
+                        </td>
+                    </tr>
+		    <tr>
+                        <td class="optionName"><a href="javascript:;">FulfilledFrom</a></td>
+                        <td>string</td>
+                        <td>
+                            Which city the order was fulfilled from. Will have the warehouse name and city.
                         </td>
                     </tr>
                 </table>
@@ -417,31 +425,37 @@
         "Id": 112131
         "ItemName": "Product B"
         "QuantityOnHand": 10
+	"StockOutDays": "10"
       }
       {
         "Id": 112132
         "ItemName": "Product C"
         "QuantityOnHand": 4
+	"StockOutDays": "20"
       }
       {
         "Id": 113589
         "ItemName": "Product D"
         "QuantityOnHand": 10
+	"StockOutDays": "5"
       }
       {
         "Id": 228454
         "ItemName": "Mustafa"
         "QuantityOnHand": 10
+	"StockOutDays": "5"
       }
       {
         "Id": 228483
         "ItemName": "Product July"
         "QuantityOnHand": 11
+	"StockOutDays": "10"
       }
       {
         "Id": 242239
         "ItemName": "PRODUCT TEST-12"
         "QuantityOnHand": 1
+	"StockOutDays": "1"
       }
 }
                 </pre>
