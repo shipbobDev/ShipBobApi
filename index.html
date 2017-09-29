@@ -473,11 +473,13 @@
   "Items": [
     {
       "ItemName": "TestItem1",
-      "SKU": "123456"
+      "SKU": "123456",
+      "Barcode": "3345672"
     },
     {
       "ItemName": "TestItem2",
       "SKU": "098765"
+      "Barcode": "558989"
     }
   ]
 }
@@ -532,6 +534,14 @@
                         <td>Optional</td>
                         <td>
                             SKU in your store
+                        </td>
+                    </tr>
+		    <tr>
+                        <td class="optionName"><a href="javascript:;">Barcode</a></td>
+                        <td>string</td>
+                        <td>Optional</td>
+                        <td>
+                            Barcode for your item. (may be same as SKU)
                         </td>
                     </tr>
 
@@ -594,6 +604,13 @@
                             SKU Imported
                         </td>
                     </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;">Barcode</a></td>
+                        <td>Array</td>
+                        <td>
+                            Barcode Imported
+                        </td>
+                    </tr>		    
                 </table>
                 <h4>Response</h4>
                 <pre class="prettyprint">
@@ -601,21 +618,25 @@
   "SuccessInventory": [
     {
       "ItemName": "TestItem1",
-      "SKU": "123456"
+      "SKU": "123456",
+      "Barcode": "8889888"
     },
     {
       "ItemName": "TestItem2",
-      "SKU": "09876"
+      "SKU": "09876",
+      "Bacode": "999abc55h"
     }
   ],
   "FailedInventory": [
     {
       "ItemName": "TestItem3",
-      "SKU": "123456"
+      "SKU": "123456",
+      "Barcode": "123456"
     },
     {
       "ItemName": "TestItem4",
-      "SKU": "09876"
+      "SKU": "09876",
+      "Barcode": "09876"
     }
   ]
 }
