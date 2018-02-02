@@ -283,95 +283,7 @@
                     </tr>
                 </table>
  
-                  <h3>Tracking Export</h3>
-                <p class="well">
-                    <span class="note">
-                        For all orders sent to us via API, we do a post back of the tracking details as soon as they are available, provided you <b>share a web hook url with us.</b>
-                    </span>
-                </p>
-                <pre class="prettyprint">
-    {
-        "UserToken":"Shipbob_Provided_Token",
-	"ReferenceId":"12345689",
-        "OrderId":123456,
-        "Carrier":"USPS",
-        "TrackingId":"345454533455444",
-	"TrackingUrl":"https://tools.usps.com/go/TrackConfirmAction!input.action?tRef=qt&tLc=0&tLabels=345454533455444"
-	"Invoice":10.25,
-	"FormatInvoice":"$10.25",
-	"FulfilledFrom": "Chicago Warehouse #1"
-    }
-                </pre>
-                <table class="table table-striped table-bordered table-condensed">
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td class="optionName" title="Description" data-content="Go to the Account Setting > API on ShipBob to create one or the get the current"><a href="javascript:;">UserToken</a></td>
-                        <td>string</td>
-                        <td>Your Token</td>
-                    </tr>
-		    <tr>
-                        <td class="optionName"><a href="javascript:;">ReferenceId</a></td>
-                        <td>string</td>
-                        <td>Order Id from your store</td>
-                    </tr>
-                    <tr>
-                        <td class="optionName"><a href="javascript:;">OrderId</a></td>
-                        <td>int</td>
-                        <td>Order Id on ShipBob</td>
-                    </tr>
-                    <tr>
-                        <td class="optionName"><a href="javascript:;">Carrier</a></td>
-                        <td>string</td>
-                        <td>
-                            Carrier name
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="optionName"><a href="javascript:;">TrackingId</a></td>
-                        <td>string</td>
-                        <td>
-                            Tracking Number
-                        </td>
-                    </tr>
-			<tr>
-                        <td class="optionName"><a href="javascript:;">TrackingUrl</a></td>
-                        <td>string</td>
-                        <td>
-                            Carrier specific Tracking URL
-                        </td>
-                    </tr>
-		    <tr>
-                        <td class="optionName"><a href="javascript:;">Invoice</a></td>
-                        <td>double</td>
-                        <td>
-                            Invoice Amount 
-                        </td>
-                    </tr>
-		    <tr>
-                        <td class="optionName"><a href="javascript:;">FormatInvoice</a></td>
-                        <td>string</td>
-                        <td>
-                            Formatted invoice amount with "$" sign
-                        </td>
-                    </tr>
-		    <tr>
-                        <td class="optionName"><a href="javascript:;">FulfilledFrom</a></td>
-                        <td>string</td>
-                        <td>
-                            Which city the order was fulfilled from. Will have the warehouse name and city.
-                        </td>
-                    </tr>
-                </table>
-                 <h4>Notes</h4>
-                <p class="well">
-                    <span class="note">
-                        Our system with check for HttpStatusCode for the post request. If it returns OK(Status code=200), we will update our records and consider it as successful postback. If anything else comes as response, our platform will retry for few days and then give up.
-                    </span>
-                </p>
+		    
                  <h3>Inventory</h3>
                 <p class="well">
                     <span class="note">
@@ -807,7 +719,98 @@
 	  "PayLoad": Order_ID
 	}
                 </pre>
-				
+		
+	<h2>WebHooks</h2>		
+	 <h3>Tracking Export</h3>
+                <p class="well">
+                    <span class="note">
+                        For all orders sent to us via API, we do a post back of the tracking details as soon as they are available, provided you <b>share a web hook url with us.</b>
+                    </span>
+                </p>
+                <pre class="prettyprint">
+    {
+        "UserToken":"Shipbob_Provided_Token",
+	"ReferenceId":"12345689",
+        "OrderId":123456,
+        "Carrier":"USPS",
+        "TrackingId":"345454533455444",
+	"TrackingUrl":"https://tools.usps.com/go/TrackConfirmAction!input.action?tRef=qt&tLc=0&tLabels=345454533455444"
+	"Invoice":10.25,
+	"FormatInvoice":"$10.25",
+	"FulfilledFrom": "Chicago Warehouse #1"
+    }
+                </pre>
+                <table class="table table-striped table-bordered table-condensed">
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td class="optionName" title="Description" data-content="Go to the Account Setting > API on ShipBob to create one or the get the current"><a href="javascript:;">UserToken</a></td>
+                        <td>string</td>
+                        <td>Your Token</td>
+                    </tr>
+		    <tr>
+                        <td class="optionName"><a href="javascript:;">ReferenceId</a></td>
+                        <td>string</td>
+                        <td>Order Id from your store</td>
+                    </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;">OrderId</a></td>
+                        <td>int</td>
+                        <td>Order Id on ShipBob</td>
+                    </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;">Carrier</a></td>
+                        <td>string</td>
+                        <td>
+                            Carrier name
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="optionName"><a href="javascript:;">TrackingId</a></td>
+                        <td>string</td>
+                        <td>
+                            Tracking Number
+                        </td>
+                    </tr>
+			<tr>
+                        <td class="optionName"><a href="javascript:;">TrackingUrl</a></td>
+                        <td>string</td>
+                        <td>
+                            Carrier specific Tracking URL
+                        </td>
+                    </tr>
+		    <tr>
+                        <td class="optionName"><a href="javascript:;">Invoice</a></td>
+                        <td>double</td>
+                        <td>
+                            Invoice Amount 
+                        </td>
+                    </tr>
+		    <tr>
+                        <td class="optionName"><a href="javascript:;">FormatInvoice</a></td>
+                        <td>string</td>
+                        <td>
+                            Formatted invoice amount with "$" sign
+                        </td>
+                    </tr>
+		    <tr>
+                        <td class="optionName"><a href="javascript:;">FulfilledFrom</a></td>
+                        <td>string</td>
+                        <td>
+                            Which city the order was fulfilled from. Will have the warehouse name and city.
+                        </td>
+                    </tr>
+                </table>
+                 <h4>Notes</h4>
+                <p class="well">
+                    <span class="note">
+                        Our system with check for HttpStatusCode for the post request. If it returns OK(Status code=200), we will update our records and consider it as successful postback. If anything else comes as response, our platform will retry for few days and then give up.
+                    </span>
+                </p>
+		
             </div><!--/span-->
         </div><!--/row-->
     </div><!--/.fluid-container-->
