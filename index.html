@@ -721,16 +721,36 @@
                 </pre>
 		
 	<h2>WebHooks</h2>		
-	 <h4>Notes</h4>
-                <p class="well">
-                    <span class="note">
-                        Our system with check for HttpStatusCode for the post request. If it returns OK(Status code=200), we will update our records and consider it as successful postback. If anything else comes as response, our platform will retry for few days and then give up.
-                    </span>
-                </p>
-	 <h3>Tracking Export</h3>
+	 
+	<h3>Order Webhooks</h3> 
+	<h4>When an Order is Shipped</h3> 
+	 <pre class="prettyprint">
+	{  
+   "order_id":"TEST",
+   "shipbob_order_id":123123,
+   "shipped_at":"2018-02-02T19:24:49.3474114Z",
+   "tracking_number":"TEST_TRACKING_NUMBER",
+   "carrier":"USPS",
+   "customer_email":"test@email.com",
+   "invoice":1.23,
+   "address":{  
+      "name":"Test",
+      "house_number":"",
+      "street_address":"2156 W Fulton St",
+      "street_address_2":"Unit 1A",
+      "city":"Chicago",
+      "state":"IL",
+      "zip":"60612",
+      "country":"US",
+      "email":"test@test.com"
+   }
+}
+</pre>
+	 <h4>Tracking Export</h3>
                 <p class="well">
                     <span class="note">
                         For all orders sent to us via API, we do a post back of the tracking details as soon as they are available, provided you <b>share a web hook url with us.</b>
+			Our system will check for HttpStatusCode for the post request. If it returns OK(Status code=200), we will update our records and consider it as successful postback. If anything else comes as response, our platform will retry for few days and then give up.
                     </span>
                 </p>
                 <pre class="prettyprint">
