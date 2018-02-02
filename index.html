@@ -721,6 +721,12 @@
                 </pre>
 		
 	<h2>WebHooks</h2>		
+	 <h4>Notes</h4>
+                <p class="well">
+                    <span class="note">
+                        Our system with check for HttpStatusCode for the post request. If it returns OK(Status code=200), we will update our records and consider it as successful postback. If anything else comes as response, our platform will retry for few days and then give up.
+                    </span>
+                </p>
 	 <h3>Tracking Export</h3>
                 <p class="well">
                     <span class="note">
@@ -804,12 +810,7 @@
                         </td>
                     </tr>
                 </table>
-                 <h4>Notes</h4>
-                <p class="well">
-                    <span class="note">
-                        Our system with check for HttpStatusCode for the post request. If it returns OK(Status code=200), we will update our records and consider it as successful postback. If anything else comes as response, our platform will retry for few days and then give up.
-                    </span>
-                </p>
+                
 		
             </div><!--/span-->
         </div><!--/row-->
