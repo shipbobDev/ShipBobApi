@@ -296,6 +296,7 @@
         "OrderId":123456,
         "Carrier":"USPS",
         "TrackingId":"345454533455444",
+	"TrackingUrl":"https://tools.usps.com/go/TrackConfirmAction!input.action?tRef=qt&tLc=0&tLabels=345454533455444"
 	"Invoice":10.25,
 	"FormatInvoice":"$10.25",
 	"FulfilledFrom": "Chicago Warehouse #1"
@@ -334,6 +335,13 @@
                         <td>string</td>
                         <td>
                             Tracking Number
+                        </td>
+                    </tr>
+			<tr>
+                        <td class="optionName"><a href="javascript:;">TrackingUrl</a></td>
+                        <td>string</td>
+                        <td>
+                            Carrier specific Tracking URL
                         </td>
                     </tr>
 		    <tr>
