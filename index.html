@@ -724,7 +724,11 @@
 	 
 	<h3>Order Webhooks</h3> 
 	<h4>When an Order is Shipped</h3> 
-	 <pre class="prettyprint">
+	<p class="well">
+                    <span class="note">                       
+                    </span>
+                </p>
+	 <pre class="prettyprint">	
 	{  
    "order_id":"TEST",
    "shipbob_order_id":123123,
@@ -746,7 +750,7 @@
    }
 }
 </pre>
-	 <h4>Tracking Export</h3>
+	 <h4>Tracking Webhook</h3>
                 <p class="well">
                     <span class="note">
                         For all orders sent to us via API, we do a post back of the tracking details as soon as they are available, provided you <b>share a web hook url with us.</b>
