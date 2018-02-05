@@ -723,6 +723,21 @@
 	<h2>WebHooks</h2>		
 	 
 	<h3>Order Webhooks</h3> 
+	<h4>When an Order is moved to Exception</h3> 
+	<p class="well">
+                    <span class="note">  
+		    This webhook is called for any order type when the order moved to Exception.
+                    </span>
+                </p>
+	 <pre class="prettyprint">		
+{  
+   "shipbob_order_id":123123,
+   "order_id":"TEST",
+   "moved_at":"2018-02-05T16:42:33.0767475Z",
+   "reason":"TEST"
+}
+</pre>
+
 	<h4>When an Order is Shipped</h3> 
 	<p class="well">
                     <span class="note">  
