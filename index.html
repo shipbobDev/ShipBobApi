@@ -752,21 +752,7 @@
    "reason":"TEST"
 }
 </pre>
-
-
-<h4>When the Credit Card is declined</h3> 
-	<p class="well">
-                    <span class="note">  
-		    This webhook is called anytime the credit card was declined.
-                    </span>
-                </p>
-	 <pre class="prettyprint">		
-{  
-   "declined_at":"2018-02-05T18:03:04.0083364Z",
-   "outstanding_amount":10.0
-}
-</pre>
-
+ 
 	<h4>When an Order is Shipped</h3> 
 	<p class="well">
                     <span class="note">  
@@ -880,7 +866,33 @@
                     </tr>
                 </table>
                 
-		
+		<h4>When an Order could not be delivered</h3> 
+	<p class="well">
+                    <span class="note">  
+		    This webhook is called for any order type when an order could not be delivered.
+                    </span>
+                </p>
+	 <pre class="prettyprint">		
+{  
+   "order_id":"TEST",
+   "shipbob_order_id":123123,
+   "tracking_number":"TEST_TRACKING_NUMBER",
+   "last_message":"TEST"
+}
+</pre>
+
+		<h4>When the Credit Card is declined</h3> 
+	<p class="well">
+                    <span class="note">  
+		    This webhook is called anytime the credit card was declined.
+                    </span>
+                </p>
+	 <pre class="prettyprint">		
+{  
+   "declined_at":"2018-02-05T18:03:04.0083364Z",
+   "outstanding_amount":10.0
+}
+</pre>
             </div><!--/span-->
         </div><!--/row-->
     </div><!--/.fluid-container-->
