@@ -881,6 +881,22 @@
 }
 </pre>
 
+
+		<h4>When an Order is delivered</h3> 
+	<p class="well">
+                    <span class="note">  
+		    This webhook is called for any order type when an order is delivered.
+                    </span>
+                </p>
+	 <pre class="prettyprint">		
+{  
+   "order_id":"TEST",
+   "shipbob_order_id":123123,
+   "tracking_number":"TEST_TRACKING_NUMBER",
+   "delivered_at":"2018-02-05T18:11:55.9984025Z"
+}
+</pre>
+
 		<h4>When the Credit Card is declined</h3> 
 	<p class="well">
                     <span class="note">  
