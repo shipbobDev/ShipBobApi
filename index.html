@@ -729,7 +729,7 @@
 		    This webhook is called for any order type when the order moved to Exception.
                     </span>
                 </p>
-	 <pre class="prettyprint">		
+	 <pre class="prettyprint">	
 {  
    "shipbob_order_id":123123,
    "order_id":"TEST",
@@ -896,6 +896,24 @@
    "delivered_at":"2018-02-05T18:11:55.9984025Z"
 }
 </pre>
+<h3>Inventory Webhooks</h3>
+<h4>When inventory count goes below the reorder point</h3> 
+	<p class="well">
+                    <span class="note">  
+		    This webhook is called when inventory count goes below the reorder point.
+                    </span>
+                </p>
+	 <pre class="prettyprint">		
+{  
+   "sku":"TEST",
+   "shipbob_inventory_id":1,
+   "item_name":"TEST_ITEM",
+   "quantity":123,
+   "warehouse":"TEST"
+}
+</pre>
+
+<h3>Other Webhooks</h3>
 
 		<h4>When the Credit Card is declined</h3> 
 	<p class="well">
@@ -909,6 +927,7 @@
    "outstanding_amount":10.0
 }
 </pre>
+
             </div><!--/span-->
         </div><!--/row-->
     </div><!--/.fluid-container-->
