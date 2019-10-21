@@ -1,9 +1,9 @@
-﻿
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>ShipBob Api Documentation</title>
+    <title>ShipBob Legacy Api Documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -52,8 +52,18 @@
                 </div><!--/.well -->
             </div><!--/span-->
             <div class="span9">
+                <div class="alert alert-error" role="alert">
+                        <h1>ATTENTION: New ShipBob Developer API Available</h1>
+                        <p>
+                            ShipBob has released a new API platform (summary is available 
+                            <a href="https://developer.shipbob.com">here</a>). This Legacy API
+                            will be continue to be available, but new development should focus on the
+                            new platform. Contact <a href="mailto:developers@shipbob.com">developers@shipbob.com</a>
+                            for more information.
+                        </p>
+                </div>
                 <div class="hero-unit">
-                    <h1>ShipBob API Documentation</h1>
+                    <h1>ShipBob Legacy API Documentation</h1>
 
                     <br />
                     <h2>Description</h2>
@@ -631,95 +641,95 @@
 </pre>	
 				
 				
-				 <h3>Warehouse Receiving Order</h3>
-                <p class="well">
-                    <span class="note">
-                        You can create a Warehouse receiving order               
-                    </span>
-                </p>
-                <h4>Request</h4>
-                <pre class="prettyprint"><br/>    POST https://shipbobapiv2.shipbob.com/api/Receiving/Create
-                </pre>
-                <table class="table table-striped table-bordered table-condensed">
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td class="optionName" title="Description" data-content="Go to the Account Setting > API on ShipBob to create one or the get the current"><a href="javascript:;">UserToken</a></td>
-                        <td>string</td>
-                        <td>Your Token</td>
-                    </tr>
-                    <tr>
-                        <td class="optionName"><a href="javascript:;">FulfillmentCenterId</a></td>
-                        <td>int</td>
-                        <td>Fulfillment center where you will sent the packages. CH = 1, NY = 2, LA = 3, SF = 4</td>
-                    </tr>
-                    <tr>
-                        <td class="optionName"><a href="javascript:;">InventoryItems</a></td>
-                        <td>List</td>
-                        <td>
-                            Provide list of inventory items you want to send. It should specify "Sku", "Quantity"
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="optionName"><a href="javascript:;">PackageType</a></td>
-                        <td>int</td>
-                        <td>
-                            Type of the Package. Package = 1, Pallet = 2
-                        </td>
-                    </tr>
-                     <tr>
-                        <td class="optionName"><a href="javascript:;">PackagesCount</a></td>
-                        <td>int</td>
-                        <td>
-                            Number of packages you are sending.
-                        </td>
-                    </tr>
-					 <tr>
-                        <td class="optionName"><a href="javascript:;">ArrivalDate</a></td>
-                        <td>string</td>
-                        <td>
-                           Arrival date of the package. Format = "mm/dd/yyyy"
-                        </td>
-                    </tr>
-                </table>
+				 
+								
+									   
+																				 
+						   
+					
+								
+																											
+					  
+																				  
+						
+									 
+									 
+											
+						 
+						
+																																																		   
+									   
+										   
+						 
+						
+																								  
+									
+																													
+						 
+						
+																							 
+									 
+							
+																												 
+							 
+						 
+						
+																						  
+									
+							
+																		
+							 
+						 
+						 
+																							
+									
+							
+															   
+							 
+						 
+		  
+																						  
+									   
+							
+																			 
+							 
+						 
+						
+	
+									
+										 
+	
+  
+										 
+							
+					  
+   
+				  
+				  
+								   
+	
+   
+				  
+				  
+								   
+   
+	 
+					
+					  
+							  
+  
+					  
+	
+								  
+										 
+	
+  
 				
-				 <h4>Example of the Request</h4>
-                <pre class="prettyprint">
-				
-	{
-	  "UserToken": "Shipbob_Provided_Token",
-	  "FulfillmentCenterId": 2,
-	  "InventoryItems": [
-		{
-		  "Sku": "SKU1",
-		  "Quantity": 1,
-		  "Tracking": "Some_TrackingInfo"
-		},
-		{
-		  "Sku": "SKU2",
-		  "Quantity": 3,
-		  "Tracking": "Some_TrackingInfo"
-		}
-	  ],
-	  "PackageType": 1,
-	  "PackagesCount": 3,
-	  "ArrivalDate": "08/01/2017"
-	}
-                </pre>
-				
-                 <h4>Response</h4>
-                <pre class="prettyprint">
-				
-	{
-	  "Error":null,
-	  "Success":true,
-	  "PayLoad": Order_ID
-	}
-                </pre>
-		
+				  
+					  
+  
+					  
+  
 	<h2>WebHooks</h2>		
 	 <p class="well">
                     <span class="note">
